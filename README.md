@@ -1,6 +1,6 @@
 # react-mailmate
 
-**You have to create file** ***./config/config.json*** **provide these keys and values:**
+**You have to create file** **_./config/config.json_** **provide these keys and values:**
 
 ```
 {
@@ -9,9 +9,5 @@
     "GOOGLE_CLIENT_SECRET": "Your_secret_key",
     "MONGODB_URI": "mongodb://address.to.mongodb/mailmate",
     "COOKIE_KEY": "anymunberofrandomcharecters"
-  },
-  "production": {
-    "...all same keys as with developmet": "Mainly for the deployment to Heroku"
   }
-}
 ```
