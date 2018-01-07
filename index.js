@@ -6,6 +6,7 @@ const passport = require('passport');
 
 require('./models/User');
 require('./services/passport');
+require('./config/config');
 
 mongoose.connect(process.env.MONGODB_URI);
 
