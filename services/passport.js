@@ -22,13 +22,13 @@ passport.use(
       callbackURL: '/auth/google/callback', // This uri and the Authorized redirect URIs at google console has to match
     },
     (accessToken, refreshToken, profile, done) => {
-      // Look for a existing user
+      // Look for an existing user
       User.findOne({ googleId: profile.id }).then((exsistingUser) => {
         if (exsistingUser) {
-          done(null, exsistingUser); // 1st arg: if error, run this, 2nd arg: User Record
+          return done(null, exsistingUser); // 1st arg: if error, run this, 2nd arg: User Record
         }
         // Create a new user if not found
-        new User({ googleId: profile.id }).save().then(
+        return new User({ googleId: profile.id }).save().then(
           user => done(null, user), // Return the new user
         );
       });
