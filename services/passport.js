@@ -20,6 +20,7 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: '/auth/google/callback', // This uri and the Authorized redirect URIs at google console has to match
+      proxy: true, // Tell GoogleStrategy to trust a proxy (eg. Heroku's)
     },
     (accessToken, refreshToken, profile, done) => {
       // Look for an existing user

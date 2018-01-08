@@ -1,6 +1,6 @@
 # react-mailmate
 
-**You have to create file** **_./config/config.json_** **and provide these keys and values:**
+**You have to create a file** **_./config/config.json_** **and provide these keys and values:**
 
 ```
 {
