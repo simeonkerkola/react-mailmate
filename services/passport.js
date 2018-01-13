@@ -22,17 +22,15 @@ passport.use(
       callbackURL: '/auth/google/callback', // This uri and the Authorized redirect URIs at google console has to match
       proxy: true, // Tell GoogleStrategy to trust a proxy (eg. Heroku's)
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
       // Look for an existing user
-      User.findOne({ googleId: profile.id }).then((exsistingUser) => {
-        if (exsistingUser) {
-          return done(null, exsistingUser); // 1st arg: if error, run this, 2nd arg: User Record
-        }
-        // Create a new user if not found
-        return new User({ googleId: profile.id }).save().then(
-          user => done(null, user), // Return the new user
-        );
-      });
+      const exsistingUser = await User.findOne({ googleId: profile.id });
+      if (exsistingUser) {
+        return done(null, exsistingUser); // 1st arg: if error, run this, 2nd arg: User Record
+      }
+      // Create a new user if not found
+      const newUser = await new User({ googleId: profile.id }).save();
+      return done(null, newUser); // Return the new user
     },
   ),
 );
