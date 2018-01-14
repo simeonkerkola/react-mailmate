@@ -9,7 +9,7 @@ const Landing = () => <h2>Landing</h2>;
 const App = () => (
   <div>
     <BrowserRouter>
-      <div>
+      <div className="container">
         <Header />
         <Route path="/" component={Landing} exact />
         <Route path="/surveys" component={Dashboard} exact />
