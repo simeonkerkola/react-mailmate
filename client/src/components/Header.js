@@ -1,7 +1,6 @@
 import React from 'react';
 
-class Header extends React.Component {
-  state = {};
+export default class Header extends React.Component {
   render() {
     return (
       <div>
@@ -21,5 +20,3 @@ class Header extends React.Component {
     );
   }
 }
-
-export default Header;
