@@ -1,6 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class Header extends React.Component {
+class Header extends React.Component {
+  renderContent() {
+    return this.props.auth ? (
+      <a href="/api/logout">Logout</a>
+    ) : (
+      <a href="/auth/google">Login</a>
+    );
+  }
   render() {
     return (
       <div>
@@ -10,9 +18,8 @@ export default class Header extends React.Component {
               mailmate
             </a>
             <ul id="nav-mobile" className="right">
-              <li>
-                <a href="/auth/google">Login</a>
-              </li>
+              <li>{this.renderContent()}</li>
+              {console.log(this.props.auth)}
             </ul>
           </div>
         </nav>
@@ -20,3 +27,10 @@ export default class Header extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({ auth }) => ({
+  auth,
+});
+const mapDispatchToProps = () => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
