@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
-  renderContent() {
+  renderContent = () => {
     return this.props.auth ? (
       <a href="/api/logout">Logout</a>
     ) : (
       <a href="/auth/google">Login</a>
     );
-  }
+  };
   render() {
     return (
       <div>
