@@ -1,5 +1,9 @@
 # react-mailmate
 
+**Email survey sending app**
+
+Involve your customers and users by creating easy email surveys to engage!
+
 **You have to create a file** **_./config/config.json_** **and provide these keys and values:**
 
 ```
