@@ -14,7 +14,10 @@ class Header extends React.Component {
       <div>
         <nav>
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo">
+            <a
+              href="/"
+              className="brand-logo"
+              style={{ paddingLeft: '.75rem' }}>
               mailmate
             </a>
             <ul id="nav-mobile" className="right">
