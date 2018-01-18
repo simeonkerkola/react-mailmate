@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Landing = () => (
   <div style={{ textAlign: 'center' }}>
@@ -7,6 +7,6 @@ const Landing = () => (
       Involve your customers and users by creating easy email surveys to engage!
     </p>
   </div>
-)
+);
 
-export default Landing
+export default Landing;

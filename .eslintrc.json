@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "es6": true,
@@ -9,6 +10,7 @@
   "plugins": ["prettier"],
   "extends": "airbnb",
   "rules": {
+    "max-len": ["error", { "code": 80, "comments": 100 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-unused-vars": ["warn", { "vars": "local" }],
     "no-shadow": 0,
@@ -17,6 +19,13 @@
     "import/no-named-as-default-member": 0,
     "react/prefer-stateless-function": 0,
     "function-paren-newline": 0,
-    "jsx-a11y/anchor-is-valid": ["warn"]
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
+      }
+    ]
   }
 }
