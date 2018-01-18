@@ -37,4 +37,4 @@ const mapStateToProps = ({ auth }) => ({
 });
 const mapDispatchToProps = () => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);
