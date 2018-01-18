@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "mocha": true,
+    "jest": true
+  },
+  "plugins": ["prettier"],
+  "extends": "airbnb",
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-unused-vars": ["warn", { "vars": "local" }],
+    "no-shadow": 0,
+    "react/prop-types": 0,
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
+    "react/prefer-stateless-function": 0,
+    "function-paren-newline": 0,
+    "jsx-a11y/anchor-is-valid": ["warn"]
+  }
+}
