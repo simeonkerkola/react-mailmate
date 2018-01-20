@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 
+require('./config/config');
 require('./models/User');
 require('./services/passport');
-require('./config/config');
 
 mongoose.connect(process.env.MONGODB_URI);
 

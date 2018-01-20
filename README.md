@@ -4,14 +4,17 @@
 
 Involve your customers and users by creating easy email surveys to engage!
 
-**You have to create a file** **_./config/config.json_** **and provide these keys and values:**
+**You have to create a file** **_./config/config.json_** **and provide this object with these keys and your own values:**
 
 ```
 {
   "development": {
-    "GOOGLE_CLIENT_ID": "Your_client_ID",
-    "GOOGLE_CLIENT_SECRET": "Your_secret_key",
+    "GOOGLE_CLIENT_ID": "...",
+    "GOOGLE_CLIENT_SECRET": "...",
     "MONGODB_URI": "mongodb://address.to.mongodb/mailmate",
-    "COOKIE_KEY": "anymunberofrandomcharecters"
+    "COOKIE_KEY": "anymunberofrandomcharecters",
+    "STRIPE_PUBLISHABLE_KEY": "...",
+    "STRIPE_SECRET_KEY": "..."
   }
+}
 ```

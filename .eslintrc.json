@@ -10,7 +10,7 @@
   "plugins": ["prettier"],
   "extends": "airbnb",
   "rules": {
-    "max-len": ["error", { "code": 80, "comments": 100 }],
+    "max-len": ["error", { "code": 90, "comments": 100 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-unused-vars": ["warn", { "vars": "local" }],
     "no-shadow": 0,
