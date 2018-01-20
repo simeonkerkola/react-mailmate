@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   renderContent = () =>
-    (this.props.auth ? <a href="/api/logout">Logout</a> : <a href="/auth/google">Login</a>);
+    (this.props.auth ? (
+      <a href="/api/logout">Logout</a>
+    ) : (
+      <a href="/auth/google">Login</a>)
+    );
   render() {
     return (
       <div>
