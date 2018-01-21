@@ -2,13 +2,30 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import Payments from './Payments';
+
 class Header extends React.Component {
-  renderContent = () =>
-    (this.props.auth ? (
-      <a href="/api/logout">Logout</a>
-    ) : (
-      <a href="/auth/google">Login</a>)
+  renderContent = () => {
+    if (this.props.auth) {
+      return [
+        <li key="payments">
+          <Payments />
+        </li>,
+        <li key="logout">
+          <a href="/api/logout">Logout</a>
+        </li>,
+      ];
+    } else if (this.props.auth === null) {
+      return undefined;
+    }
+
+    return (
+      <li key="login">
+        <a href="/auth/google">Login</a>
+      </li>
     );
+  };
+
   render() {
     return (
       <div>
@@ -22,7 +39,7 @@ class Header extends React.Component {
               mailmate
             </Link>
             <ul id="nav-mobile" className="right">
-              <li>{this.renderContent()}</li>
+              {this.renderContent()}
               {console.log(this.props.auth)}
             </ul>
           </div>
