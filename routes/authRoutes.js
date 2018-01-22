@@ -2,19 +2,17 @@ const passport = require('passport');
 
 module.exports = (app) => {
   app.get(
-    '/auth/google', // when someone visits this route, they will be redirected to authentication flow
+    // when someone visits this route, they will be redirected to authentication flow
+    '/auth/google',
     passport.authenticate('google', {
-      scope: ['profile', 'email'], // The scope specifies what we can access in users profile
+      // The scope specifies what we can access in users profile
+      scope: ['profile', 'email'],
     }),
   );
 
-  app.get(
-    '/auth/google/callback',
-    passport.authenticate('google'),
-    (req, res) => {
-      res.redirect('/surveys');
-    },
-  );
+  app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => {
+    res.redirect('/surveys');
+  });
 
   app.get('/api/logout', (req, res) => {
     req.logout(); // Logs out and kills the cookie
