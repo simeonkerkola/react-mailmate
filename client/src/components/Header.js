@@ -11,14 +11,14 @@ class Header extends React.Component {
         <li key="payments">
           <Payments />
         </li>,
+        <li key="credits" style={{ margin: '0 10px' }}>
+          Credits: {this.props.auth.credits}
+        </li>,
         <li key="logout">
           <a href="/api/logout">Logout</a>
         </li>,
       ];
-    } else if (this.props.auth === null) {
-      return undefined;
-    }
-
+    } else if (this.props.auth === null) return undefined;
     return (
       <li key="login">
         <a href="/auth/google">Login</a>
