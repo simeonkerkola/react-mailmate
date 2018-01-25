@@ -33,7 +33,7 @@ class Header extends React.Component {
           <div className="nav-wrapper">
             <Link
               to={this.props.auth ? '/surveys' : '/'}
-              className="brand-logo"
+              className="brand-logo left"
               style={{ paddingLeft: '.75rem' }}
             >
               mailmate
