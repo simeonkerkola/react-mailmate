@@ -11,7 +11,7 @@ const surveySchema = new Schema({
     positive: { type: Number, default: 0 },
     negative: { type: Number, default: 0 },
   },
-  // Make mongoose understand that this is going to be reference to a very particular user
+  // Make mongoose understand that this is going to be reference to a particular user
   _user: { type: Schema.Types.ObjectId, ref: 'User' },
   dateLastResponded: Date,
   dateSent: Date,
