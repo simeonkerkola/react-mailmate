@@ -8,7 +8,8 @@
     "npm": "5.0.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-all": "",
+    "test": "nodemon --exec jest tests/*.test.js",
     "start": "node index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"nodemon\" \"npm run client\"",
@@ -21,9 +22,11 @@
     "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
+    "mongodb": "^3.0.2",
     "mongoose": "^5.0.0-rc2",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^5.4.0"
   },
   "devDependencies": {
@@ -34,6 +37,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.6.0",
-    "prettier-eslint": "^8.7.0"
+    "jest": "^22.1.4",
+    "prettier-eslint": "^8.7.0",
+    "supertest": "^3.0.0"
   }
 }
