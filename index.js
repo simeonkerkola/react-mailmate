@@ -5,9 +5,9 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+require('./config/config');
 require('./models/User');
 require('./models/Survey');
-require('./config/config');
 require('./services/passport');
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -42,3 +42,5 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log('app running on a port:', PORT));
+
+module.exports = app;
