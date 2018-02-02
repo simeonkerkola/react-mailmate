@@ -20,7 +20,7 @@ Involve your customers and users by creating easy email surveys to engage!
 }
 ```
 
-**As well as both **_./client/.env.development_** **&** **_./client/.env.production_** **With:**
+**As well as both** **_./client/.env.development_** & **_./client/.env.production_** **With:**
 
 ```
 REACT_APP_STRIPE_KEY=...
