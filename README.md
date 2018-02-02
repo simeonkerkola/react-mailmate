@@ -14,7 +14,14 @@ Involve your customers and users by creating easy email surveys to engage!
     "MONGODB_URI": "mongodb://address.to.mongodb/mailmate",
     "COOKIE_KEY": "anymunberofrandomcharecters",
     "STRIPE_PUBLISHABLE_KEY": "...",
-    "STRIPE_SECRET_KEY": "..."
+    "STRIPE_SECRET_KEY": "...",
+    "SENDGRID_KEY": "..."
   }
 }
+```
+
+**As well as both **_./client/.env.development_\*\* **&** **\_./client/.env.production\_\_** **With:**
+
+```
+REACT_APP_STRIPE_KEY=...
 ```
