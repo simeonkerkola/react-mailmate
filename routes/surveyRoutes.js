@@ -23,6 +23,7 @@ module.exports = (app) => {
     });
 
     // First arg is an Object of Title and Recipients, 2nd arg is the html body of the email
-    const mailer = new Mailer(survey, surveyTemplate);
+    const mailer = new Mailer(survey, surveyTemplate(survey));
+    mailer.send();
   });
 };
