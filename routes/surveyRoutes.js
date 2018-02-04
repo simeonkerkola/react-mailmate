@@ -7,15 +7,20 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 const Survey = mongoose.model('surveys');
 
 module.exports = (app) => {
+  app.get('/api/thanks', (req, res) => {
+    res.send('Thanks for voting!');
+  });
+
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
     const {
-      title, subject, body, recipients,
+      title, subject, body, recipients, redirectUrl,
     } = req.body;
 
     const survey = new Survey({
       title,
       subject,
       body,
+      redirectUrl: redirectUrl && redirectUrl,
       // split every address by comma and .trim() cut the extra white space
       recipients: recipients.split(',').map(email => ({ email: email.trim() })),
       _user: req.user.id,

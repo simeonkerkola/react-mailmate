@@ -13,6 +13,7 @@ const surveySchema = new Schema({
   },
   // Make mongoose understand that this is going to be reference to a particular user
   _user: { type: Schema.Types.ObjectId, ref: 'User' },
+  redirectUrl: { type: String, default: `${process.env.REDIRECT_DOMAIN}/api/thanks` },
   dateLastResponded: Date,
   dateSent: Date,
 });
