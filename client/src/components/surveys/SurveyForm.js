@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 
 const FIELDS = [
-  { label: 'Survey Title', name: 'surveyTitle' },
+  { label: 'Survey Title', name: 'title' },
   { label: 'Subject', name: 'subject' },
-  { label: 'Email Body', name: 'emailBody' },
-  { label: 'Recipient List', name: 'recipientList' },
+  { label: 'Email Body', name: 'body' },
+  { label: 'Recipient List', name: 'emails' },
 ];
 
 class SurveyForm extends React.Component {
@@ -19,7 +19,7 @@ class SurveyForm extends React.Component {
     //   <Field
     //     component={SurveyField}
     //     label="Survey Title"
-    //     name="surveyTitle"
+    //     name="title"
     //     type="text"
     //   />
     // </div>
@@ -47,8 +47,20 @@ class SurveyForm extends React.Component {
   }
 }
 
+// If Redux Form gets an empty object back it assumes that the entire form is valid
+const validate = (values) => {
+  const errors = {};
+
+  FIELDS.forEach(({ name }) => {
+    if (!values[name]) errors[name] = 'This field is required';
+  });
+  console.log(values);
+  return errors;
+};
+
 // reduxForm is wired up same as connect()
 // Adds some additional props for us to use like handleSubmit()
 export default reduxForm({
+  validate,
   form: 'surveyForm',
 })(SurveyForm);
