@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
   { label: 'Survey Title', name: 'title' },
@@ -50,11 +51,13 @@ class SurveyForm extends React.Component {
 // If Redux Form gets an empty object back it assumes that the entire form is valid
 const validate = (values) => {
   const errors = {};
+  errors.emails = validateEmails(values.emails || '');
 
   FIELDS.forEach(({ name }) => {
     if (!values[name]) errors[name] = 'This field is required';
   });
-  console.log(values);
+
+  console.log(errors);
   return errors;
 };
 
