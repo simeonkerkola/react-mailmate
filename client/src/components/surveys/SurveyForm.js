@@ -16,21 +16,13 @@ class SurveyForm extends React.Component {
     return FIELDS.map(({ label, name }) => (
       <Field component={SurveyField} label={label} name={name} type="text" key={name} />
     ));
-    // <div>
-    //   <Field
-    //     component={SurveyField}
-    //     label="Survey Title"
-    //     name="title"
-    //     type="text"
-    //   />
-    // </div>
   }
 
   render() {
     return (
       <div className="row">
         <form
-          onSubmit={this.props.handleSubmit(values => console.log(values))}
+          onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}
           className="col s12"
         >
           {this.renderFields()}
@@ -56,7 +48,6 @@ const validate = (values) => {
   FIELDS.forEach(({ name }) => {
     if (!values[name]) errors[name] = 'This field is required';
   });
-
   console.log(errors);
   return errors;
 };
