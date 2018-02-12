@@ -6,8 +6,11 @@ class SurveyNew extends React.Component {
   state = {
     showFormReview: false,
   };
-  onReadyForReview = () => {
+  readyForReview = () => {
     this.setState(() => ({ showFormReview: true }));
+  };
+  notReadyForReview = () => {
+    this.setState(() => ({ showFormReview: false }));
   };
   render() {
     console.log(this.state);
@@ -16,9 +19,9 @@ class SurveyNew extends React.Component {
         <h3>New Survey</h3>
         <div className="container">
           {this.state.showFormReview ? (
-            <SurveyFormReview on={this.onReadyForReview} />
+            <SurveyFormReview onCancel={this.notReadyForReview} />
           ) : (
-            <SurveyForm onSurveySubmit={this.onReadyForReview} />
+            <SurveyForm onSurveySubmit={this.readyForReview} />
           )}
         </div>
       </div>
