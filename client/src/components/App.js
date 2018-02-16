@@ -6,6 +6,7 @@ import * as actions from '../actions';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import Landing from './Landing';
+import Success from './surveys/Success';
 import SurveyNew from './surveys/SurveyNew';
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
             <Header />
             <div className="container">
               <Route path="/" component={Landing} exact />
+              <Route path="/success" component={Success} exact />
               <Route path="/surveys" component={Dashboard} exact />
               <Route path="/surveys/new" component={SurveyNew} />
             </div>

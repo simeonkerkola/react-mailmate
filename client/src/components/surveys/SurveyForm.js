@@ -37,7 +37,7 @@ class SurveyForm extends React.Component {
 // If Redux Form gets an empty object back it assumes that the entire form is valid
 const validate = (values) => {
   const errors = {};
-  errors.emails = validateEmails(values.emails || '');
+  errors.recipients = validateEmails(values.recipients || '');
 
   formFields.forEach(({ name }) => {
     if (!values[name]) errors[name] = 'This field is required';
