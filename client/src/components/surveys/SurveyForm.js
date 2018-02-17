@@ -7,8 +7,15 @@ import formFields from './formFields';
 
 class SurveyForm extends React.Component {
   renderFields() {
-    return formFields.map(({ label, name }) => (
-      <Field component={SurveyField} label={label} name={name} type="text" key={name} />
+    return formFields.map(({ label, name, fieldType }) => (
+      <Field
+        component={SurveyField}
+        label={label}
+        name={name}
+        type="password"
+        key={name}
+        fieldType={fieldType}
+      />
     ));
   }
 
