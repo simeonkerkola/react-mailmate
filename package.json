@@ -12,8 +12,10 @@
     "test": "nodemon --exec jest tests/*.test.js",
     "start": "node index.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"nodemon\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm i --prefix client && npm run build --prefix client"
+    "dev": "concurrently \"nodemon\" \"npm run client\" \"npm run webhook\"",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm i --prefix client && npm run build --prefix client",
+    "webhook": "./sendgrid_webhook.sh"
   },
   "author": "",
   "license": "ISC",
@@ -38,6 +40,7 @@
     "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.6.0",
     "jest": "^22.1.4",
+    "localtunnel": "^1.8.3",
     "prettier-eslint": "^8.7.0",
     "supertest": "^3.0.0"
   }
