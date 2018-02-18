@@ -9,26 +9,25 @@ const Survey = mongoose.model('surveys');
 module.exports = (app) => {
   app.get('/api/thanks', (req, res) => {
     res.send('Thanks for voting!');
-    res.send({});
   });
 
   // Enable Email notifications on SendGrid's settings, https://app.sendgrid.com/settings/mail_settings
   // Post url: https://asioersawrsfdxs.localtunnel.me/api/surveys/webhooks
   // Select Actions: Clicked
   app.post('/api/surveys/webhooks', (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
+    res.send({});
   });
 
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
     const {
-      title, subject, body, recipients, redirectUrl,
+      title, subject, body, recipients,
     } = req.body;
 
     const survey = new Survey({
       title,
       subject,
       body,
-      redirectUrl: redirectUrl && redirectUrl,
       // split every address by comma and .trim() cut the extra white space
       recipients: recipients.split(',').map(email => ({ email: email.trim() })),
       _user: req.user.id,
