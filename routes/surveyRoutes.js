@@ -1,3 +1,6 @@
+const _ = require('lodash');
+const Path = require('path-parser');
+const { URL } = require('url');
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
@@ -16,6 +19,22 @@ module.exports = (app) => {
   // Select Actions: Clicked
   app.post('/api/surveys/webhooks', (req, res) => {
     // console.log(req.body);
+
+    // From the events that SendGrid returns, confirm that event was a 'click' event
+    // and take only what we need, eg. the url containing surveyId, choice and email
+    const p = new Path('/api/surveys/:surveyId/:choice');
+    const filteredEvents = req.body
+      .map(({ email, url }) => {
+        const match = p.test(new URL(url).pathname);
+        if (match) return { email, surveyId: match.surveyId, choice: match.choice };
+        return null;
+      })
+      .filter(event => event !== null); // Only grab events that had id and choice
+
+    // Remove any duplicates of email and id
+    const uniqueEvents = _.uniqBy(filteredEvents, 'email', 'surveyId');
+    console.log('uniqueEvents', uniqueEvents);
+
     res.send({});
   });
 

@@ -6,10 +6,10 @@ module.exports = survey => `
         <h3>Please answer the following question.</h3>
         <p>${survey.body}</p>
         <div>
-          <a href="${survey.redirectUrl}">Yes</a>
+          <a href="${process.env.REDIRECT_DOMAIN}/api/surveys/${survey.id}/yes">Yes</a>
         </div>
         <div>
-          <a href="${survey.redirectUrl}">No</a>
+          <a href="${process.env.REDIRECT_DOMAIN}/api/surveys/${survey.id}/no">No</a>
         </div>
       </div>
     </body>
