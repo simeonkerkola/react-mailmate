@@ -30,10 +30,28 @@ module.exports = (app) => {
         return null;
       })
       .filter(event => event !== null); // Only grab events that had id and choice
-
     // Remove any duplicates of email and id
     const uniqueEvents = _.uniqBy(filteredEvents, 'email', 'surveyId');
     console.log('uniqueEvents', uniqueEvents);
+
+    uniqueEvents.forEach(({ email, surveyId, choice }) => {
+      // updateOne finds a one matching record, takes the updates object as an 2nd arg, and then updates it
+      Survey.updateOne(
+        {
+          // Find the right survey
+          _id: surveyId,
+          // Go thru the recipients, and find the one element that has a matching email and hasn't yet responeded
+          recipients: {
+            $elemMatch: { email, responded: false },
+          },
+        },
+        {
+          // After we have a choise defined (positive or negative) we can assign a key name [choise]
+          $inc: { [choice]: 1 }, // Increment count by 1
+          $set: { 'recipients.$.responded': true }, // $ lines up with the first match ($elemMatch)
+        },
+      ).exec(); // Execute the query, send to database
+    });
 
     res.send({});
   });
