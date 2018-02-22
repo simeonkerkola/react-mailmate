@@ -10,7 +10,7 @@ const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 const Survey = mongoose.model('surveys');
 
 module.exports = (app) => {
-  app.get('/api/thanks', (req, res) => {
+  app.get('/api/surveys/:surveyId/:choice', (req, res) => {
     res.send('Thanks for voting!');
   });
 
@@ -49,6 +49,7 @@ module.exports = (app) => {
           // After we have a choise defined (positive or negative) we can assign a key name [choise]
           $inc: { [choice]: 1 }, // Increment count by 1
           $set: { 'recipients.$.responded': true }, // $ lines up with the first match ($elemMatch)
+          dateLastResponded: new Date(),
         },
       ).exec(); // Execute the query, send to database
     });
