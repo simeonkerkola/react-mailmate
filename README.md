@@ -15,7 +15,8 @@ Involve your customers and users by creating easy email surveys to engage!
     "COOKIE_KEY": "anymunberofrandomcharecters",
     "STRIPE_PUBLISHABLE_KEY": "...",
     "STRIPE_SECRET_KEY": "...",
-    "SENDGRID_KEY": "..."
+    "SENDGRID_KEY": "...",
+    "REDIRECT_DOMAIN": "http://localhost:3000"
   }
 }
 ```
